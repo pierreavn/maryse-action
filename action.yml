@@ -1,0 +1,5 @@
+name: 'Maryse Action'
+description: 'Index recipes from recipes/ into cookbook.yml for Maryse'
+runs:
+  using: 'node16'
+  main: 'src/index.js'
