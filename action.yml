@@ -1,5 +1,9 @@
 name: 'Maryse Action'
+author: pierreavn
 description: 'Index recipes from recipes/ into cookbook.yml for Maryse'
+branding:
+  icon: book
+  color: yellow
 runs:
   using: 'node16'
   main: 'src/index.js'

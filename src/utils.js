@@ -14,7 +14,8 @@ module.exports.loadRecipes = async (dirPath) => {
     try {
         recipesFiles = await module.exports.listFilesRecursively(dirPath);
     } catch (error) {
-        throw new Error("'recipes' directory not found");
+        console.log(error);
+        throw new Error("failed to list 'recipes' directory");
     }
 
     // Read files
@@ -113,7 +114,6 @@ module.exports.listFilesRecursively = async (dirPath, arrayOfFiles = null) => {
     arrayOfFiles = arrayOfFiles ?? [];
   
     await Promise.all(files.map(async (file) => {
-
         if ((await fs.stat(dirPath + "/" + file)).isDirectory()) {
             return module.exports.listFilesRecursively(dirPath + "/" + file, arrayOfFiles);
         } else {

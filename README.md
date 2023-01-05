@@ -1,6 +1,6 @@
 # Maryse action
-
-This action generate index (cookbook.yml) for a Maryse repository.
+This action generate index (cookbook.yml) for a Maryse repository.  
+More information here: https://github.com/pierreavn/maryse
 
 ## Usage
 
@@ -17,6 +17,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
-        - uses: pierreavn/maryse-action@main
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build Maryse
+        uses: pierreavn/maryse-action@v1
+      - name: Commit & Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update cookbook.yml
 ```
